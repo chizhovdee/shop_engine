@@ -1,0 +1,17 @@
+<%= semantic_form_for [:admin, @category] do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :parent_category %> 
+
+    <%= f.input :name %>
+    <%= f.input :alias %>
+
+    <%= f.input :position %>
+
+    <div class="text_input custom">
+      <%= f.label :description %>
+      <%= f.cktext_area :description, :ckeditor => {:uiColor => "#AADC6E", :toolbar => "mini"} %>
+    </div> 
+  <% end %>
+    
+  <%= f.actions %>
+<% end %>

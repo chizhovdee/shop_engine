@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420190340) do
+ActiveRecord::Schema.define(:version => 20130427133124) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -49,23 +49,59 @@ ActiveRecord::Schema.define(:version => 20130420190340) do
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.string   "alias"
+    t.integer  "parent_category_id"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "state",              :limit => 30
+    t.integer  "position",                         :default => 10000
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
   end
+
+  add_index "categories", ["alias"], :name => "index_categories_on_alias"
+  add_index "categories", ["parent_category_id"], :name => "index_categories_on_parent_category_id"
+
+  create_table "product_features", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.text     "text"
+    t.integer  "position",   :default => 10000
+    t.integer  "product_id"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "product_features", ["product_id"], :name => "index_product_features_on_product_id"
+
+  create_table "product_pictures", :force => true do |t|
+    t.string   "picture"
+    t.integer  "product_id"
+    t.boolean  "main"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "product_pictures", ["product_id"], :name => "index_product_pictures_on_product_id"
 
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "alias"
+    t.string   "articul"
     t.text     "description"
+    t.text     "additional"
     t.integer  "price"
     t.integer  "action_price"
     t.datetime "action_available_till"
+    t.string   "video_url"
+    t.string   "state",                 :limit => 30
     t.integer  "category_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.integer  "position",                            :default => 10000
+    t.integer  "count_orders"
+    t.boolean  "action"
+    t.datetime "created_at",                                             :null => false
+    t.datetime "updated_at",                                             :null => false
   end
 
+  add_index "products", ["alias"], :name => "index_products_on_alias"
   add_index "products", ["category_id"], :name => "index_products_on_category_id"
 
 end

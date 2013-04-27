@@ -23,8 +23,11 @@ end
 gem 'jquery-rails'
 
 # Misc
-gem 'activeadmin'
-gem "state_machine", "~> 1.2.0"
+gem 'activeadmin', '~> 0.6.0'
+gem "ckeditor", '~> 4.0.4'
+gem "rmagick", '~> 2.13.2'
+gem 'carrierwave', '~> 0.8.0'
+gem "state_machine", '~> 1.2.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

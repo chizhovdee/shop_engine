@@ -1,0 +1,15 @@
+<%= semantic_form_for [:admin, @product_feature.product, @product_feature] do |f| %>
+  <%= f.inputs do %>
+
+    <%= f.hidden_field :product_id %>
+
+    <h2 class="custom">Product: <%= f.object.product.name %></h2>
+
+    <%= f.input :name %>
+    <%= f.input :value %>
+    <%= f.input :text %>
+    <%= f.input :position %>
+  <% end %>  
+
+  <%= f.actions  %>
+<% end %>

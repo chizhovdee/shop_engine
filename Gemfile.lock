@@ -48,6 +48,12 @@ GEM
       sass (>= 3.2.0)
       thor
     builder (3.0.4)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+    ckeditor (4.0.4)
+      mime-types
+      orm_adapter
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -123,6 +129,7 @@ GEM
       json (~> 1.4)
     responders (0.9.3)
       railties (~> 3.1)
+    rmagick (2.13.2)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -150,11 +157,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeadmin
+  activeadmin (~> 0.6.0)
+  carrierwave (~> 0.8.0)
+  ckeditor (~> 4.0.4)
   coffee-rails (~> 3.2.1)
   jquery-rails
   mysql2
   rails (= 3.2.12)
+  rmagick (~> 2.13.2)
   sass-rails (~> 3.2.3)
   state_machine (~> 1.2.0)
   uglifier (>= 1.0.3)

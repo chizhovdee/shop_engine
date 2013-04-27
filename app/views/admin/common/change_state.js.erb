@@ -2,7 +2,7 @@ $('#<%= dom_id(@resource) %>').fadeOut();
 
 
 $('#<%= dom_id(@resource) %>').queue(function(next){ 
-  $(this).find('.state').html('11111'); 
+  $(this).find('.state').html("<%= escape_javascript(admin_state(@resource)) %>"); 
   
   next();
 }).fadeIn();

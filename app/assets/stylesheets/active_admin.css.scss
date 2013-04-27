@@ -27,3 +27,24 @@
 // .active_admin       applies to any Active Admin namespace
 // .admin_namespace    applies to the admin namespace (eg: /admin)
 // .other_namespace    applies to a custom namespace named other (eg: /other)
+
+.text_input.custom {
+  padding: 10px 40px 10px 10px;
+
+  label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}
+
+h2.custom {
+  padding-left: 10px !important;
+}
+
+
+.index_table {
+  .name {
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
