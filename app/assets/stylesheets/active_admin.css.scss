@@ -37,12 +37,49 @@
   }
 }
 
+.select_input.custom {
+
+    padding: 10px;
+
+    label {
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+  .select.fluid {
+    float: left;
+    margin-right: 20px;
+  }
+
+  .or.fluid {
+    float: left;
+    font-weight: bold;
+    font-size: 15px;
+    margin-right: 20px;
+  }
+}
+
 h2.custom {
   padding-left: 10px !important;
 }
 
 
 .index_table {
+  .name {
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+
+.attributes_table {
+  .pictures {
+    margin-right: 10px;
+
+    &.main {
+      border: 2px solid red;
+    }
+  }
+
   .name {
     font-weight: bold;
     font-size: 15px;

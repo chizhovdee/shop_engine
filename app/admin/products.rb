@@ -9,7 +9,7 @@ ActiveAdmin.register Product do
 
       html << image_tag(product.product_pictures.find_all_by_main(true).first.try(:picture_url, :small))
       html << "<br />"
-      html << link_to("All pictures", admin_product_product_pictures_path(product))
+      html << link_to("Add / Edit pictures", admin_product_product_pictures_path(product))
 
       div :style => "text-align: center" do
         html.html_safe
@@ -57,9 +57,12 @@ ActiveAdmin.register Product do
       row :image do
         html = ""
 
-        html << image_tag(product.product_pictures.find_all_by_main(true).first.try(:picture_url, :middle))
+        product.product_pictures.each do |picture|
+          html << image_tag(picture.picture_url(:middle), :class => "pictures #{ :main if picture.main? }")
+        end
+
         html << "<br />"
-        html << link_to("All pictures", admin_product_product_pictures_path(product))
+        html << link_to("Add / Edit pictures", admin_product_product_pictures_path(product))
 
         html.html_safe
       end

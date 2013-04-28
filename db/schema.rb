@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427133124) do
+ActiveRecord::Schema.define(:version => 20130428075344) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -60,6 +60,28 @@ ActiveRecord::Schema.define(:version => 20130427133124) do
   add_index "categories", ["alias"], :name => "index_categories_on_alias"
   add_index "categories", ["parent_category_id"], :name => "index_categories_on_parent_category_id"
 
+  create_table "info_blocks", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "picture"
+    t.integer  "page_id"
+    t.string   "state",      :limit => 30
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "info_blocks", ["page_id"], :name => "index_info_blocks_on_page_id"
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.string   "alias"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "pages", ["alias"], :name => "index_pages_on_alias"
+
   create_table "product_features", :force => true do |t|
     t.string   "name"
     t.string   "value"
@@ -103,5 +125,21 @@ ActiveRecord::Schema.define(:version => 20130427133124) do
 
   add_index "products", ["alias"], :name => "index_products_on_alias"
   add_index "products", ["category_id"], :name => "index_products_on_category_id"
+
+  create_table "special_offers", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "page_id"
+    t.integer  "product_id"
+    t.string   "state",          :limit => 30
+    t.datetime "available_till"
+    t.integer  "position",                     :default => 1000
+    t.string   "picture"
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
+  end
+
+  add_index "special_offers", ["page_id"], :name => "index_special_offers_on_page_id"
+  add_index "special_offers", ["product_id"], :name => "index_special_offers_on_product_id"
 
 end

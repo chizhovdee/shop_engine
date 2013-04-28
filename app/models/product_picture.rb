@@ -1,5 +1,5 @@
 class ProductPicture < ActiveRecord::Base
-  mount_uploader :picture, PictureUploader
+  mount_uploader :picture, ProductPictureUploader
 
   belongs_to :product
   attr_accessible :main, :picture, :product_id, :picture_cache, :remove_picture

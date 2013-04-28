@@ -1,19 +1,21 @@
-ActiveAdmin.register Category do
+ActiveAdmin.register InfoBlock do
 
   form :partial => "form"
 
   index do
     column :id
 
-    column :name do |resource| 
+    column :title do |resource| 
       div :class => :name do 
-        resource.name
+        resource.title
       end
     end
 
-    column :alias
+    column :picture do |resource|
+      image_tag(resource.picture_url) if resource.picture?
+    end
 
-    column :parent_category
+    column :page
 
     column :created_at
 
@@ -35,29 +37,34 @@ ActiveAdmin.register Category do
       text.html_safe
     end
 
-    column :position
-
     default_actions
   end
 
   show do
     attributes_table do
       row :id
-      row :name
-      row :alias
-      row :parent_category
+      row :title do |resource| 
+        div :class => :name do 
+          resource.title
+        end
+      end
+      row :page
 
-      row :created_at
-      row :updated_at
+      row :picture do |resource|
+        image_tag(resource.picture_url) if resource.picture?
+      end
 
       row :state do |resource| 
         status_tag(resource.state, (:complete if resource.state == 'visible'))
       end
 
-      row :position
+      #row :position
 
-      row :description do |resource|
-        simple_format(resource.description)
+      row :created_at
+      row :updated_at
+
+      row :body do |resource|
+        simple_format(resource.body)
       end
     end
 
@@ -65,7 +72,7 @@ ActiveAdmin.register Category do
   end
 
   member_action :change_state, :method => :put do
-    @resource = Category.find(params[:id])
+    @resource = InfoBlock.find(params[:id])
 
     case params[:state].to_sym
     when :visible
@@ -76,5 +83,5 @@ ActiveAdmin.register Category do
 
     render :template => 'admin/common/change_state', :layout => false
   end
-
+  
 end

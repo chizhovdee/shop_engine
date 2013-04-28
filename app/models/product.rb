@@ -4,6 +4,8 @@ class Product < ActiveRecord::Base
   has_many :product_pictures
   has_many :product_features
 
+  has_one :special_offer, :as => :resource, :class_name => 'SpecialOffer'
+
   attr_accessible :action_available_till, :action_price, :description, :name, :price, :alias, :category_id,
     :articul, :additional, :video_url, :position, :action
 
@@ -27,4 +29,7 @@ class Product < ActiveRecord::Base
     [:hidden, :visible]
   end
 
+  def self.actions_dropdown
+    find_all_by_action(true).collect{|p| [p.name, p.id]}
+  end
 end

@@ -1,0 +1,33 @@
+<%= semantic_form_for [:admin, @info_block] do |f| %>
+  <%= f.inputs do %>
+
+    <%= f.input :page %>
+
+    <%= f.input :title %>
+
+    <p style="padding: 10px">
+      <%= image_tag(@info_block.picture_url) if @info_block.picture? %>
+    </p>  
+
+    <p style="padding: 10px">
+      <%= f.input :picture %>
+      <%= f.hidden_field :picture_cache %>
+    </p>  
+
+    <% if @info_block.picture? %>
+      <p style="padding: 10px">
+        <label>
+          <%= f.check_box :remove_picture %>
+          Remove picture
+        </label>
+      </p>
+    <% end %>  
+
+    <div class="text_input custom">
+      <%= f.label :body %>
+      <%= f.cktext_area :body, :ckeditor => {:uiColor => "#AADC6E", :toolbar => "mini"} %>
+    </div> 
+  <% end %>  
+
+  <%= f.actions  %>
+<% end %>
