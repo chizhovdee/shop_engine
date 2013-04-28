@@ -22,3 +22,5 @@ doc/
 .project
 .DS_Store
 .ruby-version
+
+/public/uploads
