@@ -6,7 +6,7 @@
 
       <div class="select fluid">
         <%= f.label :product %>
-        <%= f.select :product, Product.actions_dropdown, :include_blank => true %>
+        <%= f.select :product_id, Product.actions_dropdown, :include_blank => true %>
       </div>
       
       <div class="or fluid">OR</div>  
@@ -14,7 +14,7 @@
 
       <div class="select fluid">
         <%= f.label :page %>
-        <%= f.select :page, Page.for_dropdown, :include_blank => true %>
+        <%= f.select :page_id, Page.for_dropdown, :include_blank => true %>
       </div>
     </div>  
 
@@ -27,6 +27,24 @@
     <%= f.input :available_till %>
 
     <%= f.input :position %>
+
+    <p style="padding: 10px">
+      <%= image_tag(@special_offer.picture_url) if @special_offer.picture? %>
+    </p>  
+
+    <p style="padding: 10px">
+      <%= f.input :picture %>
+      <%= f.hidden_field :picture_cache %>
+    </p>  
+
+    <% if @special_offer.picture? %>
+      <p style="padding: 10px">
+        <label>
+          <%= f.check_box :remove_picture %>
+          Remove picture
+        </label>
+      </p>
+    <% end %>  
 
     <div class="text_input custom">
       <%= f.label :body %>
