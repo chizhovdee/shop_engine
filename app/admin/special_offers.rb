@@ -14,7 +14,7 @@ ActiveAdmin.register SpecialOffer do
       image_tag(resource.picture_url) if resource.picture?
     end
 
-    column :product
+    column :item
 
     column :page
 
@@ -53,7 +53,7 @@ ActiveAdmin.register SpecialOffer do
       end
       row :page
 
-      row :product
+      row :item
 
       row :picture do |resource|
         image_tag(resource.picture_url) if resource.picture?

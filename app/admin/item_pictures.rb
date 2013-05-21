@@ -1,5 +1,5 @@
-ActiveAdmin.register ProductPicture do
-  belongs_to :product
+ActiveAdmin.register ItemPicture do
+  belongs_to :item
 
   form :partial => "form"
 
@@ -8,7 +8,7 @@ ActiveAdmin.register ProductPicture do
       radio_button_tag(:main, resource.id, resource.main?)
     end
 
-    column :product
+    column :item
 
     column :picture do |resource|
       image_tag(resource.picture_url(:small))
@@ -23,7 +23,7 @@ ActiveAdmin.register ProductPicture do
 
   show do |resource|
     attributes_table do
-      row :product
+      row :item
 
       row :picture do
         image_tag(resource.picture_url(:middle))
@@ -38,7 +38,7 @@ ActiveAdmin.register ProductPicture do
   end
 
   member_action :mark_as_main, :method => :put do
-    picture = ProductPicture.find(params[:id])
+    picture = ItemPicture.find(params[:id])
     picture.mark_as_main!
 
     render :text => "Picture marked as 'main'"

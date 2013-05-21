@@ -2,11 +2,11 @@
   <%= f.inputs do %>
 
     <div class="select_input custom">
-      <h4>Select product or page</h4>
+      <h4>Select item or page</h4>
 
       <div class="select fluid">
-        <%= f.label :product %>
-        <%= f.select :product_id, Product.actions_dropdown, :include_blank => true %>
+        <%= f.label :item %>
+        <%= f.select :item_id, Item.actions_dropdown, :include_blank => true %>
       </div>
       
       <div class="or fluid">OR</div>  

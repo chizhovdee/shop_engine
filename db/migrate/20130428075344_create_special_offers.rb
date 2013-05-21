@@ -4,7 +4,7 @@ class CreateSpecialOffers < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.integer :page_id
-      t.integer :product_id
+      t.integer :item_id
       t.string :state, :limit => 30
       t.datetime :available_till
       t.integer :position, :default => 1000
@@ -14,6 +14,6 @@ class CreateSpecialOffers < ActiveRecord::Migration
     end
 
     add_index :special_offers, :page_id
-    add_index :special_offers, :product_id
+    add_index :special_offers, :item_id
   end
 end

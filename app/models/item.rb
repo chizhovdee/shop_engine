@@ -1,12 +1,12 @@
-class Product < ActiveRecord::Base
+class Item < ActiveRecord::Base
   belongs_to :category
 
-  has_many :product_pictures
-  has_many :product_features
+  has_many :item_pictures
+  has_many :item_features
 
   has_one :special_offer, :as => :resource, :class_name => 'SpecialOffer'
 
-  attr_accessible :action_available_till, :action_price, :description, :name, :price, :alias, :category_id,
+  attr_accessible :action_available_till, :action_price, :description, :body, :name, :price, :alias, :category_id,
     :articul, :additional, :video_url, :position, :action
 
   validates :name, :price, :articul, :description, :category_id, :alias, :position, :presence => true

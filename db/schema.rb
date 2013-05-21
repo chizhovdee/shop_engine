@@ -72,43 +72,34 @@ ActiveRecord::Schema.define(:version => 20130428075344) do
 
   add_index "info_blocks", ["page_id"], :name => "index_info_blocks_on_page_id"
 
-  create_table "pages", :force => true do |t|
-    t.string   "title"
-    t.string   "alias"
-    t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "pages", ["alias"], :name => "index_pages_on_alias"
-
-  create_table "product_features", :force => true do |t|
+  create_table "item_features", :force => true do |t|
     t.string   "name"
     t.string   "value"
     t.text     "text"
     t.integer  "position",   :default => 10000
-    t.integer  "product_id"
+    t.integer  "item_id"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
   end
 
-  add_index "product_features", ["product_id"], :name => "index_product_features_on_product_id"
+  add_index "item_features", ["item_id"], :name => "index_item_features_on_item_id"
 
-  create_table "product_pictures", :force => true do |t|
+  create_table "item_pictures", :force => true do |t|
     t.string   "picture"
-    t.integer  "product_id"
+    t.integer  "item_id"
     t.boolean  "main"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "product_pictures", ["product_id"], :name => "index_product_pictures_on_product_id"
+  add_index "item_pictures", ["item_id"], :name => "index_item_pictures_on_item_id"
 
-  create_table "products", :force => true do |t|
+  create_table "items", :force => true do |t|
     t.string   "name"
     t.string   "alias"
     t.string   "articul"
     t.text     "description"
+    t.text     "body"
     t.text     "additional"
     t.integer  "price"
     t.integer  "action_price"
@@ -123,14 +114,24 @@ ActiveRecord::Schema.define(:version => 20130428075344) do
     t.datetime "updated_at",                                             :null => false
   end
 
-  add_index "products", ["alias"], :name => "index_products_on_alias"
-  add_index "products", ["category_id"], :name => "index_products_on_category_id"
+  add_index "items", ["alias"], :name => "index_items_on_alias"
+  add_index "items", ["category_id"], :name => "index_items_on_category_id"
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.string   "alias"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "pages", ["alias"], :name => "index_pages_on_alias"
 
   create_table "special_offers", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "page_id"
-    t.integer  "product_id"
+    t.integer  "item_id"
     t.string   "state",          :limit => 30
     t.datetime "available_till"
     t.integer  "position",                     :default => 1000
@@ -139,7 +140,7 @@ ActiveRecord::Schema.define(:version => 20130428075344) do
     t.datetime "updated_at",                                     :null => false
   end
 
+  add_index "special_offers", ["item_id"], :name => "index_special_offers_on_item_id"
   add_index "special_offers", ["page_id"], :name => "index_special_offers_on_page_id"
-  add_index "special_offers", ["product_id"], :name => "index_special_offers_on_product_id"
 
 end
