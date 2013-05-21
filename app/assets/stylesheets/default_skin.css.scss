@@ -1,0 +1,189 @@
+body {
+  background-color: #fdfffc;
+}
+
+//feffea
+
+.container {
+  width: 960px;
+}
+
+.icon-custom {
+  display: block;
+  padding-left: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.icon-custom-phone {
+  background-image: url("/assets/phone.png");
+}
+
+header {
+  margin: 20px 0;
+}
+
+#top_menu {
+  ul {
+    li {
+      a {
+        color: #000;
+        font-size: 16px;
+
+        &:hover {
+          color: #706868;
+        }
+      }
+    }
+  }
+}
+
+header {
+  .phone_block {
+    text-align: right;
+
+    .phone {
+      font-size: 26px;
+      line-height: 50px;
+      height: 50px;
+      color: #333333;
+    }
+  }
+
+  .icon-custom-phone, .note {
+    float: right;
+  }
+
+  .note {
+    color: #333333;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  button {
+    margin-top: 20px;
+  }
+}
+
+#info_blocks {
+  width: 100%;
+
+  tr {
+    vertical-align: top;
+  }
+
+  .info_block {
+    margin-right: 15px;
+
+    &.last {
+      margin-right: 0px;
+    }
+
+    &.blue {
+      background-color: #0064c5;
+
+      .head, .content {
+        background: none;
+      }
+    }
+
+    .head {
+      height: 43px;
+      background-color: #2d9f00;
+
+      .title {
+        font-size: 15px;
+        line-height: 43px;
+        padding-left: 10px;
+        font-weight: bold;
+        color: #fff;
+      }
+    }
+
+    .content {
+      background-color: #348d00;
+      height: 140px;
+    }
+  }
+}
+
+#content-body {
+  width: 100%;
+  margin-top: 30px;
+}
+
+#sidebar {
+  width: 312px;
+
+  .content_block {
+    background-color: #ededcd;
+    border: 1px solid #e2e2e2;
+    margin-bottom: 20px;
+
+    .content {
+      padding: 10px;
+    }
+
+    h2 {
+      font-size: 15px;
+      padding-left: 10px;
+      margin: 0;
+    }
+  }
+
+  .catalog_menu {
+    .content {
+      padding: 10px 0px;
+    }
+
+    .nav-catalog-list {
+      li {
+        position: relative;
+
+        a {
+          font-size: 14px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          color: #000;
+          text-decoration: underline;
+
+          &:hover {
+            background-color: #dddd9f;
+            text-decoration: none;
+          }
+        }
+
+        .icon-chevron-right {
+          color: #a7a7a7;
+          float: right;
+          text-decoration: none;
+        }
+
+        .inner-catalog {
+          display: none;
+          position: absolute;
+          top: 0px;
+          left: 280px;
+          width: 312px;
+          background-color: #ededcd;
+          border: 1px solid #e2e2e2;
+        }
+      }
+    }
+  }
+
+  .search_block {
+    .form-search {
+      input {
+        width: 185px;
+      }
+    }
+  }
+}
+
+footer {
+  height: 50px;
+  margin-top: 20px;
+  background-color: #ccc;
+}

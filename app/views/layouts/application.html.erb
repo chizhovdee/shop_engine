@@ -2,13 +2,39 @@
 <html>
 <head>
   <title>ShopEngine</title>
+
+  <meta charset="utf-8"></meta>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"></meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+  <div id="content-wrapper">
+    <div class="container">
+
+      <%= render("layouts/header") %>
+
+      <%= render("layouts/top_menu") %>
+
+      <%= render("layouts/info_blocks") %>
+
+      <table id="content-body">
+        <tbody>
+          <tr>
+            <td class="sidebar"><%= render("layouts/sidebar") %></td>
+
+            <td class="main-content"><%= yield %></td>
+          </tr>  
+        </tbody>
+      </table>   
+    </div>  
+
+    <%= render("layouts/footer") %>
+  </div>  
 
 </body>
 </html>

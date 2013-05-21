@@ -12,4 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require_tree .
+
+$(function(){
+
+  $(".nav-catalog-list li a").hover(
+    function(){
+      $(this).parents("li").find(".inner-catalog").show();
+    },
+
+    function(){
+      $(this).parents("li").find(".inner-catalog").hide();
+    }
+  );
+
+});
