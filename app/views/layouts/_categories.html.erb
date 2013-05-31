@@ -1,0 +1,28 @@
+<% fetch_all_categories do |categories| %>
+  <ul class="nav nav-list nav-catalog-list">
+    <% categories.select{|c| c['parent_category_id'] == nil}.each do |category| %>
+      <li>
+        <a href="/categories/<%= category['alias'] %>">
+          <%= category['name'] %>
+
+          <% fetch_child_categories(category, categories) do |child_categories| %>
+            <i class="icon-chevron-right"></i>
+
+            <div class="inner-catalog">
+               <ul class="nav nav-list nav-catalog-list">
+               
+                <% child_categories.each do |child_category| %>
+                  <li>
+                    <a href="/categories/<%= child_category['alias'] %>">
+                      <%= child_category['name'] %>
+                    </a>
+                  </li>
+                <% end %>  
+               </ul>
+            </div>
+          <% end %>  
+        </a>
+      </li>
+    <% end %>  
+  </ul>
+<% end %>  

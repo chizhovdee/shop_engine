@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428075344) do
+ActiveRecord::Schema.define(:version => 20130527153322) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20130428075344) do
   create_table "item_features", :force => true do |t|
     t.string   "name"
     t.string   "value"
-    t.text     "text"
     t.integer  "position",   :default => 10000
     t.integer  "item_id"
     t.datetime "created_at",                    :null => false
@@ -102,16 +101,20 @@ ActiveRecord::Schema.define(:version => 20130428075344) do
     t.text     "body"
     t.text     "additional"
     t.integer  "price"
-    t.integer  "action_price"
     t.datetime "action_available_till"
     t.string   "video_url"
-    t.string   "state",                 :limit => 30
+    t.string   "state",                   :limit => 30
     t.integer  "category_id"
-    t.integer  "position",                            :default => 10000
+    t.integer  "position",                              :default => 10000
     t.integer  "count_orders"
     t.boolean  "action"
-    t.datetime "created_at",                                             :null => false
-    t.datetime "updated_at",                                             :null => false
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
+    t.integer  "new_price"
+    t.boolean  "hit",                                   :default => false
+    t.boolean  "new_item",                              :default => false
+    t.boolean  "discount",                              :default => false
+    t.datetime "discount_available_till"
   end
 
   add_index "items", ["alias"], :name => "index_items_on_alias"
@@ -121,8 +124,11 @@ ActiveRecord::Schema.define(:version => 20130428075344) do
     t.string   "title"
     t.string   "alias"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.integer  "position",                 :default => 1000
+    t.boolean  "service",                  :default => false
+    t.string   "state",      :limit => 50
   end
 
   add_index "pages", ["alias"], :name => "index_pages_on_alias"

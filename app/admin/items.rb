@@ -1,4 +1,6 @@
 ActiveAdmin.register Item do
+  config.sort_order = "category_id_asc"
+
   index do
     column :id
 
@@ -6,10 +8,15 @@ ActiveAdmin.register Item do
 
     column :image do |item|
       html = ""
+      
+      if pic = item.item_pictures.find_all_by_main(true).first
+        html << image_tag(pic.try(:picture_url, :small))
+      else
+        html << image_tag("no_photo.png")
+      end
 
-      html << image_tag(item.item_pictures.find_all_by_main(true).first.try(:picture_url, :small))
       html << "<br />"
-      html << link_to("Add / Edit pictures", admin_item_item_pictures_path(item))
+      html << link_to(t(".add_edit_pictures"), admin_item_item_pictures_path(item))
 
       div :style => "text-align: center" do
         html.html_safe
@@ -18,9 +25,17 @@ ActiveAdmin.register Item do
 
     column :category
 
-    column :alias
-
     column :price
+    column :new_price
+
+    column :status do |resource|
+      result = "NEW" if resource.new_item?
+      result = "HIT" if resource.hit?
+      result = "ACTION" if resource.action?
+      result = "DISCOUNT" if resource.discount?
+
+      "<strong style='color: red'>#{ result }</strong>".html_safe
+    end
 
     column :created_at
 
@@ -51,7 +66,6 @@ ActiveAdmin.register Item do
     attributes_table do
       row :id
       row :name
-      row :alias
       row :category
 
       row :image do
@@ -68,9 +82,16 @@ ActiveAdmin.register Item do
       end
 
       row :price
+      row :new_price
+
+      row :new_item
+      row :hit
+
       row :action
-      row :action_price
       row :action_available_till
+      
+      row :discount
+      row :discount_available_till
 
       row :created_at
       row :updated_at
@@ -83,6 +104,10 @@ ActiveAdmin.register Item do
 
       row :description do |resource|
         simple_format(resource.description)
+      end
+
+      row :body do |resource|
+        simple_format(resource.body)
       end
 
       row :additional do |resource|

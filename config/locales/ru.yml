@@ -1,0 +1,19 @@
+ru:
+  active_admin:
+    resource:
+      index:
+        add_edit_pictures: "Добавить / Редактировать картинки"
+
+  layouts:
+    catalog_menu:
+      title: "Каталог"      
+
+  items:
+    list:
+      articul: "Арт.%{value}"    
+      price: 
+        title: "Цена:"
+        old: "Старая цена:"
+      buttons:
+        order: "Заказать"
+        more: "Подробнее"  

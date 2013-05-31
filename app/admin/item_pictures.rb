@@ -23,6 +23,10 @@ ActiveAdmin.register ItemPicture do
 
   show do |resource|
     attributes_table do
+      row "all_pictures" do |resource|
+        link_to(t(".all_pictures"), admin_item_item_pictures_path(resource.item))
+      end
+
       row :item
 
       row :picture do

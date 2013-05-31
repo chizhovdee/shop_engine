@@ -17,6 +17,12 @@ end
 
 module ShopEngine
   class Application < Rails::Application
+    #config.cache_store = :mem_cache_store, Rails::Config.cache.server, {:namespace => Rails::Config.cache[:namespace] || Rails.env}
+
+    config.autoload_paths += Dir[
+      config.root.join('lib')
+    ]
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -38,6 +44,8 @@ module ShopEngine
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.i18n.default_locale = :ru
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"

@@ -6,6 +6,13 @@ ShopEngine::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
+  match 'pages/:alias' => 'pages#show'
+
+  match 'reviews' => 'pages#reviews'
+
+  match 'categories/:alias' => 'categories#show'
+
+  match 'items/:id' => 'items#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

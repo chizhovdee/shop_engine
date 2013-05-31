@@ -5,9 +5,15 @@
 
     <h2 class="custom">Item: <%= f.object.item.name %></h2>
 
-    <p style="padding: 10px">
+    <div style="margin-bottom: 10px; padding: 10px;">
+      <%= link_to("Список всех картинок этой позиции", admin_item_item_pictures_path(f.object.item),
+            :style => "font-size: 15px"
+          ) %>
+    </div>    
+
+    <div style="padding: 10px">
       <%= image_tag(@item_picture.picture_url(:middle)) if @item_picture.picture? %>
-    </p>  
+    </div>  
 
     <p style="padding: 10px">
       <%= f.input :picture %>

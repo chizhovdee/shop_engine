@@ -111,6 +111,14 @@ header {
 #content-body {
   width: 100%;
   margin-top: 30px;
+
+  tr {
+    vertical-align: top;
+  }
+    
+  .main-content {
+    padding-left: 20px;
+  }
 }
 
 #sidebar {
@@ -163,8 +171,8 @@ header {
         .inner-catalog {
           display: none;
           position: absolute;
-          top: 0px;
-          left: 280px;
+          top: -10px;
+          left: 290px;
           width: 312px;
           background-color: #ededcd;
           border: 1px solid #e2e2e2;
@@ -186,4 +194,103 @@ footer {
   height: 50px;
   margin-top: 20px;
   background-color: #ccc;
+}
+
+#items {
+  width: 100%;
+
+  .line {
+    td {
+      border-top: 1px solid #e2e2e2;
+      padding-top: 20px;
+
+      &.border {
+        border-right: 1px solid #e2e2e2;
+      }
+    }
+  }
+
+  .item {
+    width: 185px;
+    padding: 0px 5px 20px 5px;
+    border-right: 1px solid #e2e2e2;
+
+    &.no_border {
+      border: none;
+    }
+
+    .image {
+      height: 182px;
+      position: relative;
+
+      .icon_status {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+      }
+    }
+
+    .name {
+      a {
+        font-weight: bold;
+        color: #696900;
+        margin-bottom: 5px;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .description {
+      font-size: 13px;
+      margin-bottom: 10px;
+      color: #333333;
+    }
+
+    .price {
+      margin-bottom: 10px;
+
+      .current_price {
+        margin-bottom: 5px;
+
+        .title {
+          float: left;
+          font-size: 15px;
+          color: #333333;
+          font-weight: bold;
+          padding-top: 5px;
+        }
+      }
+
+      .old_price {
+        margin-bottom: 5px;
+
+        .title {
+          float: left;
+          color: #8b8989;
+          font-size: 13px;
+        }
+
+        .old {
+          color: #8b8989;
+        }
+      }
+
+      .current {
+        float: left;
+        display: block;
+        background-color: #c8f18b;
+        padding: 5px 10px;
+        margin-left: 10px;
+        font-weight: bold;
+      }
+
+      .old {
+        float: left;
+        text-decoration: line-through;
+        padding-left: 10px;
+      }
+    }
+  }
 }

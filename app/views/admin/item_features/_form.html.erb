@@ -5,9 +5,14 @@
 
     <h2 class="custom">Item: <%= f.object.item.name %></h2>
 
+    <div style="margin-bottom: 10px; padding: 10px;">
+      <%= link_to("Список всех характеристик этой позиции", admin_item_item_features_path(f.object.item),
+            :style => "font-size: 15px"
+          ) %>
+    </div>    
+
     <%= f.input :name %>
     <%= f.input :value %>
-    <%= f.input :text %>
     <%= f.input :position %>
   <% end %>  
 

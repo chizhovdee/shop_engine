@@ -6,10 +6,10 @@ class Item < ActiveRecord::Base
 
   has_one :special_offer, :as => :resource, :class_name => 'SpecialOffer'
 
-  attr_accessible :action_available_till, :action_price, :description, :body, :name, :price, :alias, :category_id,
-    :articul, :additional, :video_url, :position, :action
+  attr_accessible :action_available_till, :description, :body, :name, :price, :alias, :category_id,
+    :articul, :additional, :video_url, :position, :action, :new_price, :new_item, :hit, :discount, :discount_available_till
 
-  validates :name, :price, :articul, :description, :category_id, :alias, :position, :presence => true
+  validates :name, :price, :body, :category_id, :position, :presence => true
   validates :position, :numericality => { :only_integer => true }
 
   state_machine :initial => :hidden do
@@ -31,5 +31,12 @@ class Item < ActiveRecord::Base
 
   def self.actions_dropdown
     find_all_by_action(true).collect{|p| [p.name, p.id]}
+  end
+
+  def self.fetch_all_for_index
+    connection.select(
+      "SELECT id, name, articul, description, price, new_price, hit, action, discount, new_item FROM items 
+       WHERE hit = 1 OR action = 1 OR discount = 1 OR new_item = 1"
+    )
   end
 end

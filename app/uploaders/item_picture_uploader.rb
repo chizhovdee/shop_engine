@@ -40,7 +40,7 @@ class ItemPictureUploader < CarrierWave::Uploader::Base
   #   process :scale => [50, 50]
   # end
 
-  process :resize_to_fit => [500, 500]
+  process :resize_to_fit => [800, 800]
 
   version :middle do
     process :resize_to_limit => [182, 182]

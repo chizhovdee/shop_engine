@@ -1,5 +1,70 @@
-<div id="items">
-  <% Item.all.each do |item| %>
-    
-  <% end %>
-</div>
+<table id="items">
+  <tbody>
+    <% items.in_groups_of(3).each_with_index do |group_items, index| %>
+      <% if index != 0 %>
+        <tr class="line">
+          <td class="border"></td>
+          <td class="border"></td>
+          <td></td>
+        </tr>
+      <% end %>
+
+      <tr class="item_group">
+        <% group_items.compact.each_with_index do |item, index| %>
+          <td class="item <%= :no_border if index == 2 %>" id="item_<%= item["id"] %>">
+
+            <div class="image">
+              <% if pic = @item_pictures[item["id"]] %>
+                <%= item_status_icon(item) %>
+
+                <%= link_to(image_tag(pic), "items/#{ item["id"] }") %>
+              <% else %>
+                <%= image_tag("no_photo.png") %> 
+              <% end %>  
+            </div>
+
+            <div class="name">
+              <%= link_to(item["name"] + " " + t(".articul", :value => item["articul"]), "items/#{ item["id"] }") %>
+            </div>
+
+            <div class="description"><%= item["description"] %></div>
+
+            <div class="price clearfix">
+            
+              <% if item["new_price"] %>
+                <div class="old_price clearfix">
+                  <span class="title"><%= t(".price.old") %></span>
+                  <span class="old"><%= number_to_currency(item["price"]) %></span>
+                </div>  
+
+                <div class="current_price clearfix">
+                  <span class="title"><%= t(".price.title") %></span>
+                  <span class="current"><%= number_to_currency(item["new_price"]) %></span>
+                </div>  
+
+              <% else %>
+                 <div class="old_price clearfix"></div>
+
+                 <div class="current_price clearfix">
+                  <span class="title"><%= t(".price.title") %></span>
+                  <span class="current"><%= number_to_currency(item["price"]) %></span>
+                </div>  
+              <% end %>
+            </div>
+
+            <div class="controls">
+              <%= link_to(t(".buttons.more"), "items/#{ item["id"] }", :class => "btn btn-small") %>
+              <button class="btn btn-small btn-danger"><%= t(".buttons.order") %></button>
+            </div>
+          </td>
+        <% end %>  
+      </tr>
+    <% end %>
+  </tbody>  
+</table>
+
+<script type="text/javascript">
+  $(function(){
+    Items.setup();
+  });
+</script>

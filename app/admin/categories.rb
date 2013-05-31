@@ -1,9 +1,17 @@
 ActiveAdmin.register Category do
 
+  config.sort_order = "parent_category_id_asc"
+
   form :partial => "form"
 
   index do
     column :id
+
+    column :position, :sortable => :position do |resource| 
+      div :class => :position do 
+        resource.position
+      end
+    end
 
     column :name do |resource| 
       div :class => :name do 
@@ -34,8 +42,6 @@ ActiveAdmin.register Category do
 
       text.html_safe
     end
-
-    column :position
 
     default_actions
   end

@@ -15,6 +15,30 @@
 //= require twitter/bootstrap
 //= require_tree .
 
+
+var Items = {
+  setup: function(){
+    var item_groups = $("#items").find(".item_group");
+    var max_height;
+    var klasses = ['name', 'description', 'current_price', 'old_price'];
+    var item_group;
+
+    item_groups.map(function(){
+      item_group = $(this);
+
+      $.map(klasses, function(klass){
+        elements = item_group.find("." + klass);
+
+        max_height = elements.map(function(){
+          return $(this).outerHeight();
+        }).toArray().sort(function(i,j){ return i > j ? -1 : 1; })[0];
+
+        elements.height(max_height);
+      });
+    });
+  }
+};
+
 $(function(){
 
   $(".nav-catalog-list li a").hover(

@@ -29,6 +29,9 @@ gem "ckeditor", '~> 4.0.4'
 gem "rmagick", '~> 2.13.2'
 gem 'carrierwave', '~> 0.8.0'
 gem "state_machine", '~> 1.2.0'
+gem 'russian', '~> 0.6.0'
+gem "devise-russian", "~> 2.0.1.1"
+gem "rails_config"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -25,4 +25,21 @@ class Category < ActiveRecord::Base
   def self.states
     [:hidden, :visible]
   end
+
+  def self.group_by_parent_category_id
+    ids = Category.group(:parent_category_id).count.keys.compact
+
+    scope = Category.where("parent_category_id IS NULL")
+
+    if true
+      ids.each do |parent_category_id|
+        scope.where("parent_category_id = ?", parent_category_id)
+      end
+
+    else
+      scope.where("id = 0")
+    end
+
+    scope
+  end
 end
