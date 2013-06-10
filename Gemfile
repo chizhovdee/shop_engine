@@ -19,9 +19,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+# JS, STYLES
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 gem "less-rails"
+gem 'fancybox2-rails', '~> 0.2.4'
 
 # Misc
 gem 'activeadmin', '~> 0.6.0'
@@ -32,6 +34,11 @@ gem "state_machine", '~> 1.2.0'
 gem 'russian', '~> 0.6.0'
 gem "devise-russian", "~> 2.0.1.1"
 gem "rails_config"
+gem 'simple_form'
+
+group :development do
+  gem "letter_opener"
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

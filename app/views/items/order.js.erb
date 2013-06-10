@@ -1,0 +1,14 @@
+<% if @order.errors.any? %>
+  $("#new_order").replaceWith("<%= escape_javascript(render("items/order_form", :item => @item, :order => @order))%>")
+
+<% else %>
+  $("#new_order").fadeOut().delay(5000).remove();
+
+  $("#item_order .text-warning").fadeOut().delay(5000).remove();
+
+  $("#item_order h1").fadeOut().delay(5000).remove();
+
+  $("#item_order .success").fadeIn();
+
+  $(".fancybox-inner").height(80);
+<% end %>

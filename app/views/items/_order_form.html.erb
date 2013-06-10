@@ -1,0 +1,34 @@
+<%= simple_form_for(order, :url => "/items/#{ item.id }/order", :remote => true, :html => {:class => 'form-horizontal' }) do |f| %>
+  <%= f.input :customer_name, :label => t(".customer_name") %>
+  <%= f.input :customer_phone, :label => t(".customer_phone") %>
+  <%= f.input :customer_email, :label => t(".customer_email") %>
+  <%= f.input :customer_address, :label => t(".customer_address"), :cols => 30, :rows => 10 %>
+  <%= f.input :customer_comment, :label => t(".customer_comment") %>
+
+  <div class="controls">
+    <button class="btn btn-danger submit">Заказать</button>
+
+    <a href="javascript:;" class="btn cancel">Отменить</a>
+
+    <div class="muted wait"><%= t(".wait") %></div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $(function(){
+    $("#new_order button.submit").bind("click", function(e){
+      e.preventDefault();
+
+      if(!$(e.currentTarget).hasClass("disabled")){
+        $(e.currentTarget).addClass("disabled");
+
+        $(e.currentTarget).parents('form').submit();
+        $(e.currentTarget).parents('form').find(".wait").show();
+      }
+    });
+
+    $("#new_order").find(".cancel").bind("click", function(){
+      $.fancybox.close();
+    });
+  });
+</script>

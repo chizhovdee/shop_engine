@@ -14,6 +14,8 @@ ShopEngine::Application.routes.draw do
 
   match 'items/:id' => 'items#show'
 
+  match 'items/:id/order' => 'items#order'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

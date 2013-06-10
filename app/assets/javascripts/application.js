@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
-//= require_tree .
+// require twitter/bootstrap
+//= require fancybox
+//= require jquery.cycle.lite
+//= require_self
 
 
 var Items = {
@@ -39,16 +41,33 @@ var Items = {
   }
 };
 
+var NavCatalogList = {
+  setup: function(){
+    $(".nav-catalog-list li a").hover(
+      function(){
+        $(this).parents("li").find(".inner-catalog").show();
+      },
+
+      function(){
+        $(this).parents("li").find(".inner-catalog").hide();
+      }
+    );
+  }
+};
+
 $(function(){
-
-  $(".nav-catalog-list li a").hover(
-    function(){
-      $(this).parents("li").find(".inner-catalog").show();
-    },
-
-    function(){
-      $(this).parents("li").find(".inner-catalog").hide();
-    }
-  );
-
+  $(".various").fancybox({
+    // maxWidth  : 600,
+    maxHeight : 570,
+    width: 550,
+    fitToView : false,
+    // width   : '70%',
+    // height    : '70%',
+    autoSize  : false,
+    autoResize: true,
+    closeClick  : false,
+    openEffect  : 'fade',
+    closeEffect : 'fade',
+    scrolling   : 'no'
+  });
 });

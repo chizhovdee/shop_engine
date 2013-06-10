@@ -1,0 +1,11 @@
+<div id="item_order">
+  <h1><%= t(".title", :item => @item.name) %></h1>
+
+  <div class="text-warning">
+    <%= t(".note") %>
+  </div>
+
+  <%= render("order_form", :item => @item, :order => @order) %>
+
+  <div class="success"><%= t(".success") %></div>
+</div>

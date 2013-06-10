@@ -6,3 +6,5 @@ $('#<%= dom_id(@resource) %>').queue(function(next){
   
   next();
 }).fadeIn();
+
+$('#<%= dom_id(@resource, :attributes_table) %> .state td').html("<%= escape_javascript(admin_state(@resource)) %>"); 

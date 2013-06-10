@@ -1,0 +1,70 @@
+<div id="item">
+  <h1 class="clearfix"><%= title(@item.name) + " " + t(".articul", :value => @item.articul) %></h1>
+
+  <div class="image">
+    <div class="cycles_wrap">
+      <div class="cycles">
+       <% @pictures.each do |pic| %>
+          <%= link_to(image_tag(pic.picture_url(:big), :alt => @item.name), pic.picture_url, 
+                :class => "fancybox",
+                :title => @item.name,
+                :rel => "group1" 
+              ) %>
+        <% end %>
+      </div>      
+
+      <%= item_status_icon(@item) %>
+    </div>  
+
+    <div class="previews">
+      <% @pictures.each do |pic| %>
+        <%= link_to(image_tag(pic.picture_url(:small), :alt => @item.name), pic.picture_url, 
+              :class => "fancybox",
+              :title => @item.name,
+              :rel => "group2" 
+            ) %>
+      <% end %>
+    </div>    
+  </div>
+
+  <div class="info_1">
+    <div class="description"><%= @item.description.html_safe %></div>
+    
+    <% if @item.item_features.any? %>
+      <%= render("items/features", :item => @item) %>
+    <% end %>
+
+    <%= render("items/price", :item => @item) %>      
+
+    <div class="buttons"><%= item_order_button(@item) %></div>
+  </div>
+
+  <div class="divide clearfix"></div>
+
+  <div class="info_2 clearfix">
+    <div class="body"><%= @item.body.html_safe %></div>
+    
+    <% unless @item.additional.blank? %>
+      <%= render("items/price", :item => @item) %>      
+
+      <div class="buttons"><%= item_order_button(@item) %></div>
+      <div class="additional"><%= @item.additional.html_safe %></div>
+    <% end %>
+
+    <% unless @item.video_url.blank? %>
+      <iframe width="560" height="315" src="<%= @item.video_url %>" frameborder="0" allowfullscreen></iframe>
+    <% end %>
+
+    <%= render("items/price", :item => @item) %>      
+
+    <div class="buttons"><%= item_order_button(@item) %></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    $("a.fancybox").fancybox();
+
+    $('#item .cycles').cycle();
+  })
+</script>

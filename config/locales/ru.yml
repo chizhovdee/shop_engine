@@ -3,8 +3,15 @@ ru:
     resource:
       index:
         add_edit_pictures: "Добавить / Редактировать картинки"
+    page:
+      index:
+        new_orders: "Новые заказы"      
+        accepted_orders: "Принятые заказы"
+        in_processing_orders: "Заказы в процессе исполнения"  
 
   layouts:
+    application:
+      app_title: "Toy Dream"
     catalog_menu:
       title: "Каталог"      
 
@@ -17,3 +24,28 @@ ru:
       buttons:
         order: "Заказать"
         more: "Подробнее"  
+    show:
+      buttons:
+        order: "Заказать"   
+      articul: "Арт.%{value}"
+    price:  
+      price: 
+        title: "Цена:"
+        old: "Старая цена:"
+    features:
+      title: "ХАРАКТЕРИСТИКИ"    
+    order:
+      title: "Заказать - '%{item}'"   
+      note: "Заполните пожалуйста поля ниже, чтобы мы могли связаться с вами"
+      success: "Ваш заказ принят. Мы свяжемся с вами в ближайшее время для уточнения деталей."
+    order_form:
+      customer_name: "Имя:"
+      customer_phone: "Телефон:"
+      customer_email: "E-mail:"
+      customer_address: "Адрес доставки (с индексом):"
+      customer_comment: "Комментарий:"  
+      wait: "Идет отправка..."
+  orders:
+    new:
+      email:
+        subject: "Новый заказ на сайте Toy Dream"    

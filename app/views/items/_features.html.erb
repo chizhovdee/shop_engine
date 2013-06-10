@@ -1,0 +1,10 @@
+<h3><%= t(".title") %></h3>
+
+<table class="table table-striped table-bordered features">
+  <% item.item_features.each do |feature| %>
+    <tr>
+      <td class="name"><%= feature.name %></td>
+      <td class="value"><%= feature.value %></td>
+    </tr>
+  <% end %>
+</table>

@@ -91,3 +91,17 @@ h2.custom {
     font-size: 15px;
   }
 }
+
+#index_table_orders, .attributes_table.order {
+  .status_tag {
+    &.new {
+      background: red;
+    }
+    &.accepted {
+      background: rgb(209, 209, 33);
+    }
+    &.in_processing {
+      background: green;
+    }
+  }
+}

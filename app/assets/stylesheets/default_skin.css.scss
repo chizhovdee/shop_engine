@@ -1,5 +1,11 @@
 body {
   background-color: #fdfffc;
+  color: #333333;
+  font-family: 'Ubuntu',Arial,Helvetica,sans-serif;
+}
+
+.divide {
+  border-bottom: 1px solid #e2e2e2;
 }
 
 //feffea
@@ -115,6 +121,10 @@ header {
   tr {
     vertical-align: top;
   }
+
+  .sidebar {
+    width: 312px;
+  }
     
   .main-content {
     padding-left: 20px;
@@ -176,6 +186,7 @@ header {
           width: 312px;
           background-color: #ededcd;
           border: 1px solid #e2e2e2;
+          z-index: 1001;
         }
       }
     }
@@ -293,4 +304,189 @@ footer {
       }
     }
   }
+}
+
+
+#item {
+  .cycles_wrap {
+    position: relative;
+
+    .icon_status {
+      position: absolute;
+      bottom: 26px;
+      right: 5px;
+      z-index: 10;
+    }
+  }
+
+  .features {
+    width: 100%;
+
+    .name {
+      width: 40%;
+      font-weight: bold;
+    }
+
+    td {
+      font-size: 12px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      line-height: 17px;
+      vertical-align: middle;
+    }
+  }
+
+  .image {
+    float: left;
+    width: 300px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+
+    .cycles {
+      height: 321px;
+      margin-bottom: 10px;
+      line-height: 300px;
+
+      a {
+        background-image: url("/assets/zoom-plus.png");
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        width: 300px;
+        height: 300px;
+        padding-bottom: 21px;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 1.5em;
+    line-height: 1.3em;
+    color: #696900;
+  }
+
+  h3 {
+    font-size: 1.1em;
+    text-align: center;
+  }
+
+  .buttons {
+    text-align: center;
+    margin: 20px 0;
+
+    .order {
+      font-weight: bold;
+    }
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .info_1 {
+    float: left;
+    width: 310px;
+  }
+
+  .info_2 {
+    margin-top: 10px;
+    padding: 0 10px;
+  }
+
+  .body, .additional {
+    font-size: 0.9em;
+  }
+
+  .price {
+    margin-bottom: 10px;
+
+    .current_price {
+      margin-bottom: 5px;
+
+      .title {
+        float: left;
+        font-size: 15px;
+        color: #333333;
+        font-weight: bold;
+        padding-top: 5px;
+      }
+    }
+
+    .old_price {
+      margin-bottom: 5px;
+
+      .title {
+        float: left;
+        color: #8b8989;
+        font-size: 13px;
+      }
+
+      .old {
+        color: #8b8989;
+      }
+    }
+
+    .current {
+      float: left;
+      display: block;
+      background-color: #c8f18b;
+      padding: 5px 10px;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+
+    .old {
+      float: left;
+      text-decoration: line-through;
+      padding-left: 10px;
+    }
+  }
+}
+
+#item_order {
+  h1 {
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 28px;
+  }
+
+  .success {
+    color: #3caa3c;
+    margin-top: 30px;
+    display: none;
+  }
+}
+
+#new_order {
+  margin-top: 20px;
+
+  textarea {
+    width: 370px;
+    height: 100px;
+  }
+
+  input {
+    width: 370px;
+  }
+
+  .cancel {
+    margin-left: 10px;
+  }
+
+  .control-group {
+    margin-bottom: 10px;
+  }
+
+  .control-label {
+    width: 110px;
+  }
+  .controls {
+    margin-left: 130px;
+  }
+  .wait {
+    display: none;
+  }
+}
+
+.fancybox-skin {
+  background-color: #ededcd;
 }

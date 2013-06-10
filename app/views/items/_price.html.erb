@@ -1,0 +1,21 @@
+<div class="price clearfix">
+  <% if item.new_price %>
+    <div class="old_price clearfix">
+      <span class="title"><%= t(".price.old") %></span>
+      <span class="old"><%= number_to_currency(item.price) %></span>
+    </div>  
+
+    <div class="current_price clearfix">
+      <span class="title"><%= t(".price.title") %></span>
+      <span class="current"><%= number_to_currency(item.new_price) %></span>
+    </div>  
+
+  <% else %>
+     <div class="old_price clearfix"></div>
+
+     <div class="current_price clearfix">
+      <span class="title"><%= t(".price.title") %></span>
+      <span class="current"><%= number_to_currency(item.price) %></span>
+    </div>  
+  <% end %>
+</div>

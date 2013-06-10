@@ -4,6 +4,8 @@ class Item < ActiveRecord::Base
   has_many :item_pictures
   has_many :item_features
 
+  has_many :orders
+
   has_one :special_offer, :as => :resource, :class_name => 'SpecialOffer'
 
   attr_accessible :action_available_till, :description, :body, :name, :price, :alias, :category_id,
@@ -33,10 +35,10 @@ class Item < ActiveRecord::Base
     find_all_by_action(true).collect{|p| [p.name, p.id]}
   end
 
-  def self.fetch_all_for_index
-    connection.select(
+  def self.find_all_for_index
+    find_by_sql(send(:sanitize_sql,
       "SELECT id, name, articul, description, price, new_price, hit, action, discount, new_item FROM items 
        WHERE hit = 1 OR action = 1 OR discount = 1 OR new_item = 1"
-    )
+    ))
   end
 end

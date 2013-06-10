@@ -9,18 +9,19 @@ module ItemsHelper
     result = ''
     statuses = [:action, :new, :hit, :discount]
 
-    if item.is_a?(Item)
-      result = statuses[0] if item.action?
-      result = statuses[1] if item.new_item?
-      result = statuses[2] if item.hit?
-      result = statuses[3] if item.discount?
-    else
-      result = statuses[0] if item['action'] == 1
-      result = statuses[1] if item['new_item'] == 1
-      result = statuses[2] if item['hit'] == 1
-      result = statuses[3] if item['discount'] == 1
-    end
+    result = statuses[0] if item.action?
+    result = statuses[1] if item.new_item?
+    result = statuses[2] if item.hit?
+    result = statuses[3] if item.discount?
 
     result
+  end
+
+  def item_order_button(item, type = nil)
+     %{ 
+        <a href="/items/#{ item.id }/order" class="btn #{ "btn-small" if type == :small } btn-danger order various fancybox.ajax">
+          #{ t(".buttons.order") }
+        </a> 
+      }.html_safe
   end
 end
