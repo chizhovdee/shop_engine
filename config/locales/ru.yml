@@ -5,15 +5,34 @@ ru:
         add_edit_pictures: "Добавить / Редактировать картинки"
     page:
       index:
-        new_orders: "Новые заказы"      
-        accepted_orders: "Принятые заказы"
-        in_processing_orders: "Заказы в процессе исполнения"  
+        new_orders: "Новые заказы (%{count})"      
+        accepted_orders: "Принятые заказы (%{count})"
+        in_processing_orders: "Заказы в процессе исполнения (%{count})"  
+        new_orders_call: "Заказы звонков (%{count})"
+        new_order_message: "Новый заказ!!!"
 
   layouts:
     application:
       app_title: "Toy Dream"
     catalog_menu:
-      title: "Каталог"      
+      title: "Каталог"   
+    header:
+      phone: "8 (952) 519-26-81"     
+      note: "Не можете выбрать? Звоните! с 10:00 до 20:00"
+      buttons:
+        order_call: "Заказать обратный звонок"
+
+  pages:
+    order_call:
+      title: "Заказать звонок/консультацию"   
+      note: "Заполните пожалуйста поля ниже, чтобы мы могли связаться с вами"
+      success: "Ваш заказ принят. Мы свяжемся с вами в ближайшее время."   
+    order_call_form:
+      customer_name: "Имя:"
+      customer_phone: "Телефон:"
+      customer_email: "E-mail:"
+      customer_comment: "Комментарий:"  
+      wait: "Идет отправка..."          
 
   items:
     list:
@@ -48,4 +67,7 @@ ru:
   orders:
     new:
       email:
-        subject: "Новый заказ на сайте Toy Dream"    
+        subject: "Новый заказ на сайте Toy Dream"  
+    new_call:      
+      email:
+        subject: "Заказ звонка на сайте Toy Dream" 

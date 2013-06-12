@@ -1,4 +1,6 @@
 <% if @order.errors.any? %>
+  $("#new_order_js").remove();
+
   $("#new_order").replaceWith("<%= escape_javascript(render("items/order_form", :item => @item, :order => @order))%>")
 
 <% else %>

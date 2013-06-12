@@ -16,6 +16,10 @@ ShopEngine::Application.routes.draw do
 
   match 'items/:id/order' => 'items#order'
 
+  match 'order_call' => 'pages#order_call'
+
+  get 'admin/order_status' => 'pages#order_status'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -442,7 +442,7 @@ footer {
   }
 }
 
-#item_order {
+.custom_dialog {
   h1 {
     font-weight: normal;
     font-size: 25px;
@@ -454,10 +454,6 @@ footer {
     margin-top: 30px;
     display: none;
   }
-}
-
-#new_order {
-  margin-top: 20px;
 
   textarea {
     width: 370px;
@@ -489,4 +485,8 @@ footer {
 
 .fancybox-skin {
   background-color: #ededcd;
+}
+
+#new_order, #new_order_call {
+  margin-top: 20px;
 }

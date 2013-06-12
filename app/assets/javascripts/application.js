@@ -71,3 +71,20 @@ $(function(){
     scrolling   : 'no'
   });
 });
+
+$(function(){
+  $(".various1").fancybox({
+    // maxWidth  : 600,
+    maxHeight : 450,
+    width: 550,
+    fitToView : false,
+    // width   : '70%',
+    // height    : '70%',
+    autoSize  : false,
+    autoResize: true,
+    closeClick  : false,
+    openEffect  : 'fade',
+    closeEffect : 'fade',
+    scrolling   : 'no'
+  });
+});

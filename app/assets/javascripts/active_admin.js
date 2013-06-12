@@ -17,3 +17,34 @@ $(function(){
 
 });
 
+var AdminOrder = {
+  blink: null,
+  setup: function(){
+
+    setInterval(function(){
+
+      $.getJSON("/admin/order_status", function(data){
+        if(data.new_order){
+          $("#new_order_message").show();
+          $("title").text("Новый заказ на сайте!!!");
+          
+          if(!AdminOrder.blink){
+            AdminOrder.blink = setInterval(AdminOrder.blinkOrder, 1000);
+          }
+        }
+      });
+
+    }, 20000);
+  },
+
+  blinkOrder: function() {
+    if($("#new_order_message .text").hasClass('blink')){
+      $("#new_order_message .text").removeClass('blink').hide();
+      $("title").text("Toy Dream");
+    } else {
+      $("#new_order_message .text").addClass('blink').show();
+      $("title").text("Новый заказ на сайте!!!");
+    }
+  }
+};
+

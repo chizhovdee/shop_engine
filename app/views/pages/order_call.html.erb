@@ -1,0 +1,11 @@
+<div id="order_call" class="custom_dialog">
+  <h1><%= t(".title") %></h1>
+
+  <div class="text-warning">
+    <%= t(".note") %>
+  </div>
+
+  <%= render("order_call_form", :order => @order) %>
+
+  <div class="success"><%= t(".success") %></div>
+</div>

@@ -10,10 +10,27 @@ ActiveAdmin.register_page "Dashboard" do
     #   end
     # end
 
+
+    div :id => :new_order_message do
+      span :class => "text" do
+        t(".new_order_message")
+      end
+    end
+
+    div do
+      %{
+        <script type="text/javascript">
+          $(function(){
+            AdminOrder.setup();
+          });
+        </script>
+      }.html_safe
+    end
+
     columns do
 
       column do
-        panel t(".new_orders") do
+        panel t(".new_orders", :count => Order.with_state(:new).count) do
           table_for Order.with_state(:new).order("created_at DESC") do 
             column :item do |order|
               link_to(order.item.articul, admin_order_path(order))
@@ -26,7 +43,21 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel t(".accepted_orders") do
+        panel t(".new_orders_call", :count => OrderCall.with_state(:new).count) do
+          table_for OrderCall.with_state(:new).order("created_at DESC") do 
+            column :customer_name do |order|
+              link_to(order.customer_name, admin_order_path(order))
+            end
+
+            column :customer_phone
+
+            column :created_at
+          end
+        end
+      end
+
+      column do
+        panel t(".accepted_orders", :count => Order.with_state(:accepted).count) do
           table_for Order.with_state(:accepted).order("created_at DESC") do 
             column :name do |order|
               link_to(order.item.articul, admin_order_path(order))
@@ -39,7 +70,7 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel t(".in_processing_orders") do
+        panel t(".in_processing_orders", :count => Order.with_state(:in_processing).count) do
           table_for Order.with_state(:in_processing).order("created_at DESC") do 
             column :name do |order|
               link_to(order.item.articul, admin_order_path(order))

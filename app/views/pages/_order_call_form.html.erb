@@ -1,8 +1,7 @@
-<%= simple_form_for(order, :url => "/items/#{ item.id }/order", :remote => true, :html => {:class => 'form-horizontal' }) do |f| %>
+<%= simple_form_for(order, :url => "/order_call", :remote => true, :html => {:class => 'form-horizontal' }) do |f| %>
   <%= f.input :customer_name, :label => t(".customer_name") %>
   <%= f.input :customer_phone, :label => t(".customer_phone") %>
   <%= f.input :customer_email, :label => t(".customer_email") %>
-  <%= f.input :customer_address, :label => t(".customer_address"), :cols => 30, :rows => 10 %>
   <%= f.input :customer_comment, :label => t(".customer_comment") %>
 
   <div class="controls">
@@ -14,9 +13,9 @@
   </div>
 <% end %>
 
-<script type="text/javascript" id="new_order_js">
+<script type="text/javascript" id="new_order_call_js">
   $(function(){
-    $("#new_order button.submit").bind("click", function(e){
+    $("#new_order_call button.submit").bind("click", function(e){
       e.preventDefault();
 
       if(!$(e.currentTarget).hasClass("disabled")){
@@ -27,7 +26,7 @@
       }
     });
 
-    $("#new_order").find(".cancel").bind("click", function(){
+    $("#new_order_call").find(".cancel").bind("click", function(){
       $.fancybox.close();
     });
   });

@@ -1,0 +1,16 @@
+<% if @order.errors.any? %>
+  $("#new_order_call_js").remove();
+
+  $("#new_order_call").replaceWith("<%= escape_javascript(render("pages/order_call_form", :order => @order))%>")
+
+<% else %>
+  $("#new_order_call").fadeOut().delay(5000).remove();
+
+  $("#order_call .text-warning").fadeOut().delay(5000).remove();
+
+  $("#order_call h1").fadeOut().delay(5000).remove();
+
+  $("#order_call .success").fadeIn();
+
+  $(".fancybox-inner").height(80);
+<% end %>
