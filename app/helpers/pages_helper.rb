@@ -3,9 +3,9 @@ module PagesHelper
     if page['alias'] == Settings.pages.root_alias
       link_to(page['title'], root_path)
     elsif page['service'] == 1
-      link_to(page['title'], page['alias'])
+      link_to(page['title'], "/#{page['alias']}")
     else
-      link_to(page['title'], "pages/#{ page['alias'] }")
+      link_to(page['title'], "/pages/#{ page['alias'] }")
     end
   end
 

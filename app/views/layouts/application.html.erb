@@ -27,7 +27,11 @@
           <tr>
             <td class="sidebar"><%= render("layouts/sidebar") %></td>
 
-            <td class="main-content"><%= yield %></td>
+            <td class="main-content">
+              <%= render_breadcrumbs %>
+
+              <%= yield %>
+            </td>
           </tr>  
         </tbody>
       </table>   

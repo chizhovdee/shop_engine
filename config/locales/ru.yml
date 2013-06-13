@@ -21,6 +21,9 @@ ru:
       note: "Не можете выбрать? Звоните! с 10:00 до 20:00"
       buttons:
         order_call: "Заказать обратный звонок"
+  will_paginate:
+    previous_label: "Предыдущая"
+    next_label: "Следующая"      
 
   pages:
     order_call:
@@ -36,7 +39,7 @@ ru:
 
   items:
     list:
-      articul: "Арт.%{value}"    
+      articul: "Артикул: %{value}"    
       price: 
         title: "Цена:"
         old: "Старая цена:"
@@ -46,7 +49,7 @@ ru:
     show:
       buttons:
         order: "Заказать"   
-      articul: "Арт.%{value}"
+      articul: "Артикул: %{value}"
     price:  
       price: 
         title: "Цена:"

@@ -14,17 +14,17 @@
           <td class="item <%= :no_border if index == 2 %>" id="item_<%= item.id %>">
 
             <div class="image">
-              <% if pic = @item_pictures[item.id] %>
+              <% if pic = item_pictures[item.id] %>
                 <%= item_status_icon(item) %>
 
-                <%= link_to(image_tag(pic), "items/#{ item.id }") %>
+                <%= link_to(image_tag(pic), "/items/#{ item.id }") %>
               <% else %>
                 <%= image_tag("no_photo.png") %> 
               <% end %>  
             </div>
 
             <div class="name">
-              <%= link_to(item.name + " " + t(".articul", :value => item.articul), "items/#{ item.id }") %>
+              <%= link_to(item.name, "/items/#{ item.id }") %>
             </div>
 
             <div class="description"><%= item.description %></div>
@@ -32,7 +32,7 @@
             <%= render("items/price", :item => item) %>
 
             <div class="controls">
-              <%= link_to(t(".buttons.more"), "items/#{ item.id }", :class => "btn btn-small") %>
+              <%= link_to(t(".buttons.more"), "/items/#{ item.id }", :class => "btn btn-small") %>
               <%= item_order_button(item, :small) %>
             </div>
           </td>
@@ -41,6 +41,8 @@
     <% end %>
   </tbody>  
 </table>
+
+<%= will_paginate(items) if with_paginate %>
 
 <script type="text/javascript">
   $(function(){

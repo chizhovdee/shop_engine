@@ -10,7 +10,7 @@ ActiveAdmin.register Page do
       row :title
       row :alias
       row :body do |resource|
-        simple_format(resource.body)
+        resource.body.html_safe
       end
 
       row :created_at

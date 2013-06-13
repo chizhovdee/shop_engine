@@ -36,6 +36,8 @@ gem 'russian', '~> 0.6.0'
 gem "devise-russian", "~> 2.0.1.1"
 gem "rails_config"
 gem 'simple_form'
+gem 'will_paginate', '~> 3.0'
+gem "breadcrumbs_on_rails"
 
 group :development do
   gem "letter_opener"

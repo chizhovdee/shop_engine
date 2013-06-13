@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  belongs_to :category
+  belongs_to :category, :counter_cache => :items_count
 
   has_many :item_pictures
   has_many :item_features
