@@ -20,8 +20,11 @@ module ShopEngine
     #config.cache_store = :mem_cache_store, Rails::Config.cache.server, {:namespace => Rails::Config.cache[:namespace] || Rails.env}
 
     config.autoload_paths += Dir[
-      config.root.join('lib')
+      config.root.join('lib'),
+      "#{config.root}/app/models/ckeditor"
     ]
+
+    #config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

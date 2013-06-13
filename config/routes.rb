@@ -1,5 +1,7 @@
 ShopEngine::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   root :to => 'home#index'

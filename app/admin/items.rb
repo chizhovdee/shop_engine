@@ -103,15 +103,15 @@ ActiveAdmin.register Item do
       row :position
 
       row :description do |resource|
-        simple_format(resource.description)
+        resource.description.html_safe
       end
 
       row :body do |resource|
-        simple_format(resource.body)
+        resource.body.html_safe
       end
 
       row :additional do |resource|
-        simple_format(resource.additional)
+        resource.additional.html_safe
       end
 
       row :features do |resource|
