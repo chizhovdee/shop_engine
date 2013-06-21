@@ -15,7 +15,14 @@
 // require twitter/bootstrap
 //= require fancybox
 //= require jquery.cycle.lite
+//= require i18n
+//= require i18n/translations
+//= require visibility
+//= require visual_timer
 //= require_self
+
+I18n.defaultLocale = "ru";
+I18n.locale = "ru";
 
 
 var Items = {

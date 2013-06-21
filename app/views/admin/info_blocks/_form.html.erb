@@ -3,7 +3,11 @@
 
     <%= f.input :page %>
 
+    <%= f.input :place, :as => :select, :collection => admin_place_keys, :include_blank => false %>
+
     <%= f.input :title %>
+
+    <%= f.input :text_link %>
 
     <p style="padding: 10px">
       <%= image_tag(@info_block.picture_url) if @info_block.picture? %>

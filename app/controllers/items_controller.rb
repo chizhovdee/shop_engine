@@ -22,4 +22,10 @@ class ItemsController < ApplicationController
       @order.save
     end
   end
+
+  def search
+    @items = params[:item_name].blank? ? [] : Item.search_by_name(params[:item_name]).limit(100)
+
+    @item_pictures = ItemPicture.fetch_for_item_list( @items.collect{ |i| i["id"] } )
+  end
 end

@@ -17,6 +17,8 @@ ActiveAdmin.register InfoBlock do
 
     column :page
 
+    column :place
+
     column :created_at
 
     column :updated_at
@@ -49,6 +51,8 @@ ActiveAdmin.register InfoBlock do
         end
       end
       row :page
+
+      row :place
 
       row :picture do |resource|
         image_tag(resource.picture_url) if resource.picture?

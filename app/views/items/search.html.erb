@@ -1,0 +1,15 @@
+<div id="search_items">
+  <h1 class="clearfix"><%= title(t(".title")) %></h1>
+
+  <div class="divide clearfix"></div>
+
+  <br />
+
+  <div class="text">
+    <%= t(".text", :count => "<strong>#{@items.size}</strong>").html_safe %>
+  </div>
+
+  <% if @items.any? %>
+    <%= render("items/list", :items => @items, :item_pictures => @item_pictures, :with_paginate => false) %>
+  <% end %>
+</div>

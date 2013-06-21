@@ -7,10 +7,6 @@ class PagesController < ApplicationController
 
   end
 
-  def search
-
-  end
-
   def order_call
     if request.get?
       @order = OrderCall.new

@@ -22,6 +22,8 @@ ShopEngine::Application.routes.draw do
 
   get 'admin/order_status' => 'pages#order_status'
 
+  post 'search' => 'items#search'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

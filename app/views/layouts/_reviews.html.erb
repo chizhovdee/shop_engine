@@ -1,7 +1,12 @@
 <div class="reviews content_block">
   <div class="content">
+    <h2><%= t(".title") %></h2>
 
-    <h2>Отзывы</h2>
 
+    <div class="controls clearfix">
+      <a class="btn btn-inverse btn-mini" href="#"><%= t(".buttons.add") %></a>
+
+      <a class="all" href="/reviews"><%= t(".buttons.read", :count => Review.count) %></a>
+    </div>
   </div>
 </div>

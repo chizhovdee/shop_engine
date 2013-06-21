@@ -20,12 +20,16 @@
 
       <%= render("layouts/top_menu") %>
 
-      <%= render("layouts/info_blocks") %>
+      <%= render("layouts/info_blocks", :place => :top) %>
 
       <table id="content-body">
         <tbody>
           <tr>
-            <td class="sidebar"><%= render("layouts/sidebar") %></td>
+            <td class="sidebar">
+              <%= render("layouts/info_blocks", :place => :sidebar) %>
+
+              <%= render("layouts/sidebar") %>
+            </td>
 
             <td class="main-content">
               <%= render_breadcrumbs %>

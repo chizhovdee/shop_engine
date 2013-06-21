@@ -1,0 +1,32 @@
+<td>
+  <div class="info_block">
+    <div class="head">
+      <div class="title"><%= info_block.title %></div>
+    </div>
+
+    <div class="content clearfix">
+
+      <div class="text">
+        <%= info_block_picture(info_block) %>
+
+        <%= info_block.body.html_safe %>
+
+        <%= info_block_link(info_block) unless info_block.text_link.blank? %>
+
+        <% if info_block.is_a?(SpecialOffer) and info_block.available_till %>
+          <div id="<%= dom_id(info_block, :left_time) %>" class="timer">
+            <%= t(".left_time") %>
+
+            <span class="value"></span>
+
+            <script type="text/javascript">
+              $(function(){ 
+                new VisualTimer(["#<%= dom_id(info_block, :left_time) %> .value"]).start(<%= info_block.left_time %>);
+              });
+            </script>
+          </div>
+        <% end %>
+      </div>  
+    </div>
+  </div>
+</td>

@@ -18,6 +18,8 @@ ActiveAdmin.register SpecialOffer do
 
     column :page
 
+    column :place
+
     column :created_at
 
     column :updated_at
@@ -54,6 +56,8 @@ ActiveAdmin.register SpecialOffer do
       row :page
 
       row :item
+
+      row :place
 
       row :picture do |resource|
         image_tag(resource.picture_url) if resource.picture?

@@ -4,7 +4,8 @@ class SpecialOffer < ActiveRecord::Base
   belongs_to :page
   belongs_to :item
 
-  attr_accessible :title, :body, :item_id, :position, :available_till, :page_id, :picture_cache, :picture, :remove_picture
+  attr_accessible :title, :body, :item_id, :position, :available_till, :page_id, :picture_cache, 
+    :picture, :remove_picture, :place, :text_link
 
   state_machine :initial => :hidden do
     state :hidden
@@ -21,5 +22,9 @@ class SpecialOffer < ActiveRecord::Base
 
   def self.states
     [:hidden, :visible]
+  end
+
+  def left_time
+    available_till.to_i - Time.now.to_i
   end
 end

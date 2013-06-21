@@ -24,6 +24,10 @@
 
     <%= f.input :title %>
 
+    <%= f.input :place, :as => :select, :collection => admin_place_keys, :include_blank => false %>
+
+    <%= f.input :text_link %>
+
     <%= f.input :available_till %>
 
     <%= f.input :position %>

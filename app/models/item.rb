@@ -27,6 +27,12 @@ class Item < ActiveRecord::Base
     end
   end
 
+  scope :search_by_name, Proc.new{|name|
+    {
+      :conditions => ["name LIKE '%%%s%%'", name]
+    }
+  }
+
   def self.states
     [:hidden, :visible]
   end

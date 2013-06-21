@@ -1,1 +1,3 @@
-<%= render("items/list", :items => @items, :item_pictures => @item_pictures, :with_paginate => false) %>
+<% if @items.any? %>
+  <%= render("items/list", :items => @items, :item_pictures => @item_pictures, :with_paginate => false) %>
+<% end %>  

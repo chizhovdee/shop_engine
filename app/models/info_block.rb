@@ -3,7 +3,7 @@ class InfoBlock < ActiveRecord::Base
 
   belongs_to :page
 
-  attr_accessible :body, :picture, :title, :page_id, :picture_cache
+  attr_accessible :body, :picture, :title, :page_id, :picture_cache, :place, :remove_picture, :text_link
 
   validates :title, :page_id, :presence => true
 

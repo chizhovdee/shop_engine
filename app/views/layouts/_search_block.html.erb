@@ -1,11 +1,11 @@
 <div class="search_block content_block">
   <div class="content">
 
-    <h2>Поиск по каталогу</h2>
+    <h2><%= t(".title") %></h2>
 
-    <form class="form-search">
-      <input type="text" class="input-medium search-query">
-      <button type="submit" class="btn">Найти</button>
-    </form>
+    <%= form_tag("/search", :class => "form-search") do %>  
+      <input type="text" name="item_name" class="input-medium search-query">
+      <button type="submit" class="btn"><%= t(".buttons.search") %></button>
+    <% end %>
   </div>
 </div>  

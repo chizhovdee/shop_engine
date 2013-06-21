@@ -1,35 +1,19 @@
-<table id="info_blocks">
+<table class="info_blocks <%= place %>">
   <tbody>
-    <tr>
-      <td>
-        <div class="info_block">
-          <div class="head">
-            <div class="title">Акции и спецпредложения</div>
-          </div>
 
-          <div class="content"></div>
-        </div>
-      </td>
+    <% if place == :top %>
+      <tr>
+        <% fetch_info_blocks(place).each do |info_block| %>
+          <%= render("layouts/info_block_item", :info_block => info_block) %>
+        <% end %>  
+      </tr>
 
-      <td>
-        <div class="info_block">
-          <div class="head">
-            <div class="title">Акции и спецпредложения</div>
-          </div>
-
-          <div class="content"></div>
-        </div>
-      </td>
-
-      <td>
-        <div class="info_block last">
-          <div class="head">
-            <div class="title">Акции и спецпредложения</div>
-          </div>
-
-          <div class="content"></div>
-        </div>
-      </td>
-    </tr>
+    <% elsif place == :sidebar %>
+      <% fetch_info_blocks(place).each do |info_block| %>
+        <tr>
+          <%= render("layouts/info_block_item", :info_block => info_block) %>
+        </tr>
+      <% end %>  
+    <% end %>  
   </tbody>
 </table>

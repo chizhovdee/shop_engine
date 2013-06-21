@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613171626) do
+ActiveRecord::Schema.define(:version => 20130619181814) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20130613171626) do
     t.string   "state",      :limit => 30
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
+    t.string   "place"
+    t.string   "text_link"
   end
 
   add_index "info_blocks", ["page_id"], :name => "index_info_blocks_on_page_id"
@@ -176,6 +178,19 @@ ActiveRecord::Schema.define(:version => 20130613171626) do
 
   add_index "pages", ["alias"], :name => "index_pages_on_alias"
 
+  create_table "reviews", :force => true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "city"
+    t.string   "office"
+    t.string   "site"
+    t.text     "body"
+    t.string   "picture"
+    t.string   "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "special_offers", :force => true do |t|
     t.string   "title"
     t.text     "body"
@@ -187,6 +202,8 @@ ActiveRecord::Schema.define(:version => 20130613171626) do
     t.string   "picture"
     t.datetime "created_at",                                     :null => false
     t.datetime "updated_at",                                     :null => false
+    t.string   "place"
+    t.string   "text_link"
   end
 
   add_index "special_offers", ["item_id"], :name => "index_special_offers_on_item_id"

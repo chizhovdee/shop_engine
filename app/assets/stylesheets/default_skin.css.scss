@@ -71,7 +71,7 @@ header {
   }
 }
 
-#info_blocks {
+.info_blocks {
   width: 100%;
 
   tr {
@@ -79,7 +79,6 @@ header {
   }
 
   .info_block {
-    margin-right: 15px;
 
     &.last {
       margin-right: 0px;
@@ -109,6 +108,53 @@ header {
     .content {
       background-color: #348d00;
       height: 140px;
+
+      .text {
+        padding: 10px;
+        color: #fff;
+        font-size: 13px;
+
+        .timer {
+          color: #fff;
+          font-size: 14px;
+          margin-top: 10px;
+          font-weight: bold;
+          text-align: center;
+
+          .value {
+            color: #ebff00;
+          }
+        }
+
+        img {
+          float: left;
+          margin: 0 10px 5px 0px;
+        }
+
+        .info_block_link {
+          display: block;
+          text-align: center;
+          font-size: 16px;
+          color: #ebff00;
+          text-decoration: underline;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  &.top {
+    .info_block {
+      margin-right: 15px;
+    }
+  }
+
+  &.sidebar {
+    .info_block {
+      margin-bottom: 20px;
     }
   }
 }

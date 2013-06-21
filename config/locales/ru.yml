@@ -11,6 +11,12 @@ ru:
         new_orders_call: "Заказы звонков (%{count})"
         new_order_message: "Новый заказ!!!"
 
+  client:
+    timer:
+      days:
+        one: "%{count} день"
+        other: "%{count} дней"       
+
   layouts:
     application:
       app_title: "Toy Dream"
@@ -21,6 +27,18 @@ ru:
       note: "Не можете выбрать? Звоните! с 10:00 до 20:00"
       buttons:
         order_call: "Заказать обратный звонок"
+    search_block:
+      title: "Поиск по каталогу"
+      buttons:
+        search: "Найти"  
+    info_block_item:
+      left_time: "Осталось: "    
+    reviews:
+      title: "Отзывы"
+      buttons:
+        add: "Оставить отзыв"
+        read: "Все отзывы (%{count})"
+
   will_paginate:
     previous_label: "Предыдущая"
     next_label: "Следующая"      
@@ -67,6 +85,9 @@ ru:
       customer_address: "Адрес доставки (с индексом):"
       customer_comment: "Комментарий:"  
       wait: "Идет отправка..."
+    search: 
+      title: "Поиск"
+      text: "Найдено %{count} товаров."    
   orders:
     new:
       email:

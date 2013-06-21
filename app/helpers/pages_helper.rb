@@ -9,6 +9,16 @@ module PagesHelper
     end
   end
 
+  def page_url(page)
+    if page['alias'] == Settings.pages.root_alias
+      root_path
+    elsif page['service'] == 1
+      "/#{page['alias']}"
+    else
+      "/pages/#{ page['alias'] }"
+    end
+  end
+
   def fetch_pages
     Page.connection.select("SELECT id, title, alias, service FROM pages ORDER BY position ASC")
   end

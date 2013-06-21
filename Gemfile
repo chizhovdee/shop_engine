@@ -24,6 +24,8 @@ gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 gem "less-rails"
 gem 'fancybox2-rails', '~> 0.2.4'
+gem "visibilityjs"
+gem 'i18n-js'
 
 # Misc
 gem 'activeadmin', '~> 0.6.0'
@@ -50,10 +52,10 @@ end
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
